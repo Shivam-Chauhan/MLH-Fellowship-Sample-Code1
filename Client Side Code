@@ -1,0 +1,19 @@
+# Same thing is needed as seen in Server Side
+
+import socket                                 # Python Module
+
+client_object = socket.socket()
+                                              # This is another example of declaring a socket here by default AF_INET and SOCK_STREAM gets selected.
+                                              
+client_object.connect(('localhost', 8000))
+                                              # Same as that for a Server.
+print(client_object.recv(1024).decode())
+                                              # The packet are generally utf-8 coded hence to decode use decode() method.
+email_pass = input("Enter single space sperated email and pass :-")
+client_object.send(bytes(email_pass, 'utf-8'))
+print(client_object.recv(1024).decode())
+client_object.close()
+                                               # Closing Client
+                                               
+                                               
+# This is code of client side socket which make a request to a server and make stores it credentials.
